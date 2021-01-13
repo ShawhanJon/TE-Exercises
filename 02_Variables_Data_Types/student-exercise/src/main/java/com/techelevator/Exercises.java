@@ -42,6 +42,7 @@ public class Exercises {
 		int numberOfBees = 3;
 		int beesLessThanFlowers = numberOfFlowers - numberOfBees;
 		System.out.println("4. " + beesLessThanFlowers);
+		
 
         /*
         5. 1 lonely pigeon was eating breadcrumbs. Another pigeon came to eat

@@ -10,6 +10,11 @@ public class Exercises {
 	 sleepIn(false, true) → true
 	 */
 	public boolean sleepIn(boolean weekday, boolean vacation) {
+		
+		if (!weekday || vacation) {
+			return true;
+		}
+		
 		return false;
 	}
 
@@ -32,7 +37,14 @@ public class Exercises {
 	 sumDouble(2, 2) → 8
 	 */
 	public int sumDouble(int a, int b) {
-		return 0;
+		
+		if (a == b) {
+			return (a + b) * 2;
+		}
+		else {
+			return a + b;
+		}
+	
 	}
 
 	/*
