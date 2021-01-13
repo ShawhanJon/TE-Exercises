@@ -8,30 +8,40 @@ public class Exercises {
         1. 4 birds are sitting on a branch. 1 flies away. How many birds are left on
         the branch?
         */
-
-		// ### EXAMPLE:
-		int initialNumberOfBirds = 4;
-		int birdsThatFlewAway = 1;
-		int remainingNumberOfBirds = initialNumberOfBirds - birdsThatFlewAway;
+		
+		int birdsOnBranch = 4;
+		int theOneThatFlewAway = 1;
+		int birdsLeftOnBranch = birdsOnBranch - theOneThatFlewAway;
+		System.out.println("1. " + birdsLeftOnBranch);
 
         /*
         2. There are 6 birds and 3 nests. How many more birds are there than
         nests?
         */
-
-		// ### EXAMPLE:
+		
 		int numberOfBirds = 6;
 		int numberOfNests = 3;
-		int numberOfExtraBirds = numberOfBirds - numberOfNests;
+		int moreBirdsThanNests = numberOfBirds - numberOfNests;
+		System.out.println("2. " + moreBirdsThanNests);
 
-        /*
+		/*
         3. 3 raccoons are playing in the woods. 2 go home to eat dinner. How
         many raccoons are left in the woods?
         */
+		
+		int raccoonsInWoods = 3;
+		int wentToEatDinner = 2;
+		int leftInTheWoods = raccoonsInWoods - wentToEatDinner;
+		System.out.println("3. " + leftInTheWoods);
 
         /*
         4. There are 5 flowers and 3 bees. How many less bees than flowers?
         */
+		
+		int numberOfFlowers = 5;
+		int numberOfBees = 3;
+		int beesLessThanFlowers = numberOfFlowers - numberOfBees;
+		System.out.println("4. " + beesLessThanFlowers);
 
         /*
         5. 1 lonely pigeon was eating breadcrumbs. Another pigeon came to eat
