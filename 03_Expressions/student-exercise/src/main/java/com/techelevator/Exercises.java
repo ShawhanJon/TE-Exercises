@@ -27,6 +27,15 @@ public class Exercises {
 	 monkeyTrouble(true, false) → false
 	 */
 	public boolean monkeyTrouble(boolean aSmile, boolean bSmile) {
+		
+		if ( aSmile && bSmile) {
+			return true;
+		}
+		
+		else if (!aSmile && !bSmile) {
+			return true;
+		}
+		
 		return false;
 	}
 
@@ -57,7 +66,16 @@ public class Exercises {
 	 diff21(-10) → 31
 	 */
 	public int diff21(int n) {
-		return 0;
+		
+		if (n <= 21) {
+			return 21 - n;
+		}
+		
+		else {
+			return (n - 21) * 2;
+		}
+					
+		
 	}
 
 	/*
@@ -69,6 +87,13 @@ public class Exercises {
 	 parrotTrouble(false, 6) → false
 	 */
 	public boolean parrotTrouble(boolean talking, int hour) {
+		
+		if (talking && (hour < 7)) {
+			return true;
+		}
+		else if (talking && (hour > 20)) {
+			return true;
+		}
 		return false;
 	}
 
@@ -79,6 +104,17 @@ public class Exercises {
 	 makes10(1, 9) → true
 	 */
 	public boolean makes10(int a, int b) {
+		
+		if ((a + b) == 10) {
+			return true;
+		}
+		else if (a == 10) {
+			return true;
+		}
+		else if (b == 10) {
+			return true;
+		}
+		else
 		return false;
 	}
 
@@ -90,7 +126,23 @@ public class Exercises {
 	 posNeg(-4, -5, true) → true
 	 */
 	public boolean posNeg(int a, int b, boolean negative) {
-		return false;
+		
+		if ((a < 0) && (b < 0) && (negative == true)) {
+			return true;
+		}
+		else if ((a < 0) && (b >= 0) && (negative == (false))) {
+			return true;
+		}
+		else if ((a >= 0) && (b < 0) && (negative == (false))) {
+			return true;
+		}
+		else if ((a < 0) && (b >= 0) && (negative == true)) {
+			return false;
+		}
+		else if ((a >= 0) && (b < 0) && (negative == true)) {
+			return false;
+		}
+		else return false;
 	}
 
 	/*
@@ -101,6 +153,17 @@ public class Exercises {
 	 or35(8) → false
 	 */
 	public boolean or35(int n) {
+		
+		if (n <= 0) {
+			return false;
+		}
+		else if ((n % 5) == 0) {
+			return true;
+		}
+		else if ((n % 3) == 0) {
+			return true;
+		}
+		else		
 		return false;
 	}
 
@@ -111,6 +174,14 @@ public class Exercises {
 	 icyHot(2, 120) → false
 	 */
 	public boolean icyHot(int temp1, int temp2) {
+		
+		if ((temp1 < 0) && (temp2 > 100)) {
+			return true;
+		}
+		else if ((temp1 > 100) && (temp2 < 0)) {
+			return true;
+		}
+		else
 		return false;
 	}
 
@@ -121,6 +192,11 @@ public class Exercises {
 	 in1020(8, 99) → false
 	 */
 	public boolean in1020(int a, int b) {
+		
+		if (((a >= 10) && (a <=20)) || ((b >= 10) && (b <= 20))) {
+			return true;
+		}
+		
 		return false;
 	}
 
@@ -132,6 +208,11 @@ public class Exercises {
 	 hasTeen(20, 10, 13) → true
 	 */
 	public boolean hasTeen(int a, int b, int c) {
+		
+		if (((a >= 13) && (a <=19)) || ((b >= 13) && (b <= 19)) || ((c >= 13) && (c <= 19))) {
+			return true;
+		}
+		
 		return false;
 	}
 
@@ -143,6 +224,11 @@ public class Exercises {
 	 loneTeen(13, 13) → false
 	 */
 	public boolean loneTeen(int a, int b) {
+		
+		if (((a >= 13) && (a <=19)) ^ ((b >= 13) && (b <= 19))) {
+			return true;
+		}
+		
 		return false;
 	}
 
@@ -153,6 +239,17 @@ public class Exercises {
 	 intMax(3, 2, 1) → 3
 	 */
 	public int intMax(int a, int b, int c) {
+		
+		if ((a >= b) && (a >= c)) {
+			return a;
+		}
+		else if ((b >= c) && (b >= a)) {
+			return b;
+		}
+		else if ((c >= a) && (c >= b)) {
+			return c;
+		}
+		else
 		return 0;
 	}
 
@@ -164,6 +261,11 @@ public class Exercises {
 	 in3050(40, 50) → true
 	 */
 	public boolean in3050(int a, int b) {
+		
+		if (((a >= 30) && (a <= 40)) && ((b >= 30) && (b <= 40)) || ((a >= 40) && (a <= 50)) && ((b >= 40) && (b <= 50))) {
+			return true;
+		}
+		
 		return false;
 	}
 
@@ -175,8 +277,18 @@ public class Exercises {
 	 max1020(11, 9) → 11
 	 */
 	public int max1020(int a, int b) {
+		
+		
+		if ((a >= 10) && (a <= 20)) {
+			return a;
+		}
+		else if ((b >= 10) && (a <= 20)) {
+			return b;
+		}
+		else
 		return 0;
-	}
+		}
+		
 
 	/*
 	 16. When squirrels get together for a party, they like to have cigars. A squirrel party is successful
@@ -188,6 +300,14 @@ public class Exercises {
 	 cigarParty(70, true) → true
 	 */
 	public boolean cigarParty(int cigars, boolean isWeekend) {
+		
+		if (((cigars >= 40) && (cigars <= 60) && (isWeekend == false))) {
+			return true;
+		}
+		else if (((cigars >= 40) && (isWeekend == true))) {
+			return true;
+		}
+		
 		return false;
 	}
 
@@ -203,7 +323,18 @@ public class Exercises {
 	 dateFashion(5, 5) → 1
 	 */
 	public int dateFashion(int you, int date) {
-		return 0;
+		
+		if ((you >= 8) && (date > 2))  {
+			return 2;
+		}
+		else if ((you > 2) && (date >= 8)) {
+			return 2;
+		}
+		else if ((you <= 2) || (date <= 2)) {
+			return 0;
+		}
+		else
+		return 1;
 	}
 
 	/*
@@ -215,6 +346,14 @@ public class Exercises {
 	 squirrelPlay(95, true) → true
 	 */
 	public boolean squirrelPlay(int temp, boolean isSummer) {
+		
+		if (((temp >= 60) && (temp <= 90)) && (isSummer == false))  {
+			return true;
+		}
+		else if (((temp >= 60) && (temp <= 100)) && (isSummer == true))  {
+			return true;
+		}
+		else
 		return false;
 	}
 
@@ -239,7 +378,26 @@ public class Exercises {
      yourCakeAndEatItToo(11.00, false) → "special"
      */
     public String yourCakeAndEatItToo(double mealAmount, boolean isBirthday) {
-        return "";
+    	
+    	if ((mealAmount <= 10) && (isBirthday == false))  {
+			return "standard";
+		}
+    	else if ((mealAmount <= 5) && (isBirthday == true))  {
+			return "standard";
+		}
+    	else if ((mealAmount > 10) && (mealAmount <= 15) && (isBirthday == false))  {
+			return "special";
+		}
+    	else if ((mealAmount > 15) && (isBirthday == false || true))  {
+			return "ginormous";
+		}
+    	else if ((mealAmount > 6) && (mealAmount <= 10) && (isBirthday == true))  {
+			return "special";
+		}
+    	else if ((mealAmount > 10) && (isBirthday == true)) {
+			return "ginormous";
+    	}
+    	else return "unknown";
     }
 
 	/*
