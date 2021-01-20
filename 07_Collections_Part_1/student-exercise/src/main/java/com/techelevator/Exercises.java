@@ -1,6 +1,7 @@
 package com.techelevator;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class Exercises {
@@ -17,12 +18,14 @@ public class Exercises {
 	 */
 	public List<String> array2List(String[] stringArray) {
 		
-		List<String> newList = new ArrayList<String> ();
+		List<String> array2List = new ArrayList<String>();
 		
-		//loop through the stringArray and move values to list
+		for (String fruit: stringArray){
+			array2List.add(fruit);
+		}
 		
 		
-		return null;
+		return array2List;
 	}
 
 	/*
@@ -33,11 +36,9 @@ public class Exercises {
 	 */
 	public String[] list2Array(List<String> stringList) {
 		
-		String[] newArray = new String[stringList.size()];
+		String[] list2Array = stringList.toArray(new String[stringList.size()]);
 		
-		//**loop through the List and put values in array
-		
-		return null;
+		return list2Array;
 	}
 
 	/*
@@ -48,7 +49,17 @@ public class Exercises {
 	 no4LetterWords( {"Jack", "Jill", "Jane", "John", "Jim"} )  ->  ["Jim"]
 	 */
 	public List<String> no4LetterWords(String[] stringArray) {
-		return null;
+		List<String> no4LetterWords = new ArrayList<String>();
+		
+		for (String words: stringArray){
+			if (words.length() != 4 ){
+				
+				no4LetterWords.add(words);
+			}
+			
+		}
+		
+		return no4LetterWords;
 	}
 
 	/*
@@ -59,19 +70,13 @@ public class Exercises {
 	 */
 	public List<Double> arrayInt2ListDouble(int[] intArray) {
 		
-		List<Double> newList = new ArrayList<Double> ();
+		List<Double> dividedDoubles = new ArrayList<Double>();
 		
-		//loop through the int[] and divide each number in array by 2 and put result into newList
-		
-		//create a for loop from int i = 0 to length of intArray
-		
-		for ( int num : intArray) {
-		
-			//get element at i position and divide by two and assign to variable xyz
-			//add xyz into the newList at i position
+		for (Integer willDivide: intArray) {
+			dividedDoubles.add(willDivide /2.0 );
 		}
 		
-		return newList;
+		return dividedDoubles;
 	}
 
 	/*
@@ -81,7 +86,7 @@ public class Exercises {
 	 findLargest( [34070, 1380, 81238, 7782, 234, 64362, 627] ) -> 64362
 	 */
 	public Integer findLargest(List<Integer> integerList) {
-		return null;
+		return Collections.max(integerList);
 	}
 
 	/*
@@ -92,9 +97,17 @@ public class Exercises {
 	 */
 	public List<Integer> oddOnly(Integer[] integerArray) {
 		
-		// mod(%) with no remainder
+		List<Integer> onlyOdds = new ArrayList<Integer>();
 		
-		return null;
+		for (Integer modTheOdds: integerArray){
+			
+			if (modTheOdds % 2 != 0){
+				onlyOdds.add(modTheOdds);
+			}
+			
+		}
+		
+		return onlyOdds;
 	}
 
 	/*
@@ -105,6 +118,17 @@ public class Exercises {
 	 foundIntTwice( [9, 23, 44, 2, 88, 44], 44) -> true
 	 */
 	public boolean foundIntTwice(List<Integer> integerList, int intToFind) {
+		int count = 0;
+		
+		for (Integer findTwice: integerList ){
+			if (intToFind == findTwice){
+				count = count + 1;
+			}
+		}
+		if (count == 2){
+			return true;
+		}
+		
 		return false;
 	}
 
@@ -122,7 +146,21 @@ public class Exercises {
 	 equals "1")
 	 */
 	public List<String> fizzBuzzList(Integer[] integerArray) {
-		return null;
+		List<String> fizzBuzzList = new ArrayList<String>();
+		
+		for (Integer checkForFizzBuzz: integerArray){
+			if (checkForFizzBuzz % 3 == 0 && checkForFizzBuzz % 5 == 0){
+				fizzBuzzList.add("FizzBuzz");
+			} else if (checkForFizzBuzz % 3 == 0){
+				fizzBuzzList.add("Fizz");
+			} else if (checkForFizzBuzz % 5 == 0){
+				fizzBuzzList.add("Buzz");
+			} else {
+				fizzBuzzList.add(checkForFizzBuzz.toString());
+			}
+		}
+		
+		return fizzBuzzList;
 	}
 
 	/*
@@ -133,7 +171,17 @@ public class Exercises {
 	 interleaveLists( [1, 2, 3], [4, 5, 6] )  ->  [1, 4, 2, 5, 3, 6]
 	 */
 	public List<Integer> interleaveLists(List<Integer> listOne, List<Integer> listTwo) {
-		return null;
+		List<Integer> interLeave = new ArrayList<Integer>();
+		
+		for (int i = 0; i < Math.max(listOne.size(), listTwo.size()); i++) {
+			if ( i < listOne.size()){
+				interLeave.add(listOne.get(i));
+			}
+			if ( i < listTwo.size()){
+				interLeave.add(listTwo.get(i));
+			}
+		}
+		return interLeave;
 	}
 
 }
