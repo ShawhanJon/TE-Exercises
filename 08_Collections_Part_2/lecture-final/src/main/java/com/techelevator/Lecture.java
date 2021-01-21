@@ -64,6 +64,24 @@ public class Lecture {
 			System.out.println(nameZip.getKey() + " lives in " + nameZip.getValue());
 		}
 		System.out.println();
+		
+		//Declare and instantiate a map to hold average population by state
+		//state is our key --> String, avg pop is our value --> Double
+		
+		Map<String, Double> avgPopOfStates = new HashMap<String, Double> ();
+		
+		avgPopOfStates.put("OH",  12222.00); //Java is handling double to Double conversion
+		avgPopOfStates.put("PA",  12422.00);
+		avgPopOfStates.put("TX",  128972.00);
+		avgPopOfStates.put("LA",  1222.00);
+		
+		double avgOhio = avgPopOfStates.get("OH"); //Java is handling Double to double conversion
+		
+		
+		System.out.println(avgOhio);
+		
+		
+		
 
 	}
 
