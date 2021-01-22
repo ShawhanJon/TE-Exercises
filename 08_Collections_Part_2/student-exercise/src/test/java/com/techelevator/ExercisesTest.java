@@ -432,19 +432,19 @@ public class ExercisesTest {
 	 */
 	@Test
 	public void exercise10_last2Revisited() {
-		Map<String, Integer> output = exercises.last2Revisited(new String[] { "hixxhi", "xaxxaxaxx", "axxxaaxx" });
+		Map<String, Integer> output = exercises.last2Revisted(new String[] { "hixxhi", "xaxxaxaxx", "axxxaaxx" });
 		assertThat("last2Revisited([\"hixxhi\", \"xaxxaxaxx\", \"axxxaaxx\"])", output.size(), equalTo(3));
 		assertThat("last2Revisited([\"hixxhi\", \"xaxxaxaxx\", \"axxxaaxx\"])", output, hasEntry("hixxhi", 1));
 		assertThat("last2Revisited([\"hixxhi\", \"xaxxaxaxx\", \"axxxaaxx\"])", output, hasEntry("xaxxaxaxx", 1));
 		assertThat("last2Revisited([\"hixxhi\", \"xaxxaxaxx\", \"axxxaaxx\"])", output, hasEntry("axxxaaxx", 2));
 
-		output = exercises.last2Revisited(new String[] { "banana", "kiwi", "Hahahahaha" });
+		output = exercises.last2Revisted(new String[] { "banana", "kiwi", "Hahahahaha" });
 		assertThat("last2Revisited([\"hixxhi\", \"xaxxaxaxx\", \"axxxaaxx\"])", output.size(), equalTo(3));
 		assertThat("last2Revisited([\"banana\", \"kiwi\", \"Hahahahaha\"])", output, hasEntry("banana", 1));
 		assertThat("last2Revisited([\"banana\", \"kiwi\", \"Hahahahaha\"])", output, hasEntry("kiwi", 0));
 		assertThat("last2Revisited([\"banana\", \"kiwi\", \"Hahahahaha\"])", output, hasEntry("Hahahahaha", 3));
 
-		output = exercises.last2Revisited(new String[] {});
+		output = exercises.last2Revisted(new String[] {});
 		assertThat("last2Revisited([ ])", output.size(), equalTo(0));
 
 	}
