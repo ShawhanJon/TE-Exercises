@@ -1,26 +1,25 @@
 package com.techelevator;
 
 public class SavingsAccount extends BankAccount {
-	
-	
 
-	public SavingsAccount(String accountHolderName, String accountNumber, int balance) {
-		super(accountHolderName, accountNumber, balance);
-		// TODO Auto-generated constructor stub
-	}
+    public SavingsAccount(String accountHolder, String accountNumber, int balance) {
+        super(accountHolder, accountNumber, balance);
+    }
 
-	public SavingsAccount(String accountHolderName, String accountNumber) {
-		super(accountHolderName, accountNumber);
-		// TODO Auto-generated constructor stub
-	}
+    public SavingsAccount(String accountHolder, String accountNumber) {
+        super(accountHolder, accountNumber);
+    }
 
-	public void withdraw() {
-		super.withdraw(getBalance());
-		if (getBalance() < 150.00) {
-			System.out.println(getBalance() + withdraw(0) + 2.00);
-		}
-		
-	}
-	
-	
+    @Override
+    public int withdraw(int amountToWithdraw) {
+        // only perform transaction of positive $ and room for fee
+        if (getBalance() - amountToWithdraw >= 2) {
+            super.withdraw(amountToWithdraw);
+            // Assess $2 fee if it goes below $150
+            if (getBalance() < 150) {
+                super.withdraw(2);
+            }
+        }
+        return getBalance();
+    }
 }
