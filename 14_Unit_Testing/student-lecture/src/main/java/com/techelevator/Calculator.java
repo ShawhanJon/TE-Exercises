@@ -26,6 +26,11 @@ public class Calculator {
 		return a - b;
 	}
 	
+	//mod
+		public int mod(int main, int div) {
+			return main % div;
+		}
+	
 	//simple method to see if a is greater than b
 	public boolean isAGreaterThanB(int a, int b) {
 		return  (a>b) ?  true : false;
@@ -76,6 +81,7 @@ public class Calculator {
 		}
 		return false;
 	}
+
 	
 	
  	
