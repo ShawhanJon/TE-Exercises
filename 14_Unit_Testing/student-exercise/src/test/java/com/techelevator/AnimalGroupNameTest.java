@@ -36,7 +36,7 @@ public class AnimalGroupNameTest {
      *
      */
 	
-	AnimalGroupName animalGroupName
+	AnimalGroupName animalGroupName;
 	
 	@Before
 	public void setUp() {
@@ -44,14 +44,54 @@ public class AnimalGroupNameTest {
 	}
 	
 	@Test
-	public void test_group_name_matshes_animal_name_and_found() {
+	public void test_group_name_matches_animal_name_and_found() {
 		
 		//Arrange
 		
 		//Act
 		Assert.assertEquals("Testing value is in map", "Crash", animalGroupName.getHerd("Rhino"));
+		Assert.assertEquals("Testing value is in map", "Tower", animalGroupName.getHerd("Giraffe"));
+		Assert.assertEquals("Testing value is in map", "Herd", animalGroupName.getHerd("Elephant"));
+		Assert.assertEquals("Testing value is in map", "Pride", animalGroupName.getHerd("Lion"));
+		Assert.assertEquals("Testing value is in map", "Murder", animalGroupName.getHerd("Crow"));
+		Assert.assertEquals("Testing value is in map", "Kit", animalGroupName.getHerd("Pigeon"));
+		Assert.assertEquals("Testing value is in map", "Pat", animalGroupName.getHerd("Flamingo"));
+		Assert.assertEquals("Testing value is in map", "Herd", animalGroupName.getHerd("Deer"));
+		Assert.assertEquals("Testing value is in map", "Pack", animalGroupName.getHerd("Dog"));
+		Assert.assertEquals("Testing value is in map", "Float", animalGroupName.getHerd("Crocodile"));
 		
-		//Assert
+		
+	}
+	
+	@Test
+	public void test_group_name_matches_animal_name_case_insensitive() {
+		
+		//Arrange
+		
+		//Act
+		Assert.assertEquals("Testing value is in map", "Crash", animalGroupName.getHerd("rhino"));
+		Assert.assertEquals("Testing value is in map", "Tower", animalGroupName.getHerd("giraffe"));
+		Assert.assertEquals("Testing value is in map", "Herd", animalGroupName.getHerd("elephant"));
+		Assert.assertEquals("Testing value is in map", "Pride", animalGroupName.getHerd("lion"));
+		Assert.assertEquals("Testing value is in map", "Murder", animalGroupName.getHerd("crow"));
+		Assert.assertEquals("Testing value is in map", "Kit", animalGroupName.getHerd("pigeon"));
+		Assert.assertEquals("Testing value is in map", "Pat", animalGroupName.getHerd("flamingo"));
+		Assert.assertEquals("Testing value is in map", "Herd", animalGroupName.getHerd("deer"));
+		Assert.assertEquals("Testing value is in map", "Pack", animalGroupName.getHerd("dog"));
+		Assert.assertEquals("Testing value is in map", "Float", animalGroupName.getHerd("crocodile"));
+		
+		
+	}
+	
+	@Test
+	public void test_for_unknown_value() {
+		
+		//Arrange
+		
+		//Act
+		Assert.assertEquals("Testing value is returning unknown", "unknown", animalGroupName.getHerd(null));
+		Assert.assertEquals("Testing value is returning unknown", "unknown", animalGroupName.getHerd(""));
+		Assert.assertEquals("Testing value is returning unknown", "unknown", animalGroupName.getHerd("cat"));
 		
 	}
 	
