@@ -6,7 +6,6 @@ public class BankAccount implements Accountable {
     private String accountNumber;
     private int balance;
     
-    
 
     public BankAccount(String accountHolder, String accountNumber) {
         this.accountHolderName = accountHolder;
@@ -20,9 +19,10 @@ public class BankAccount implements Accountable {
         this.balance = balance;
     }
     
-    public int transferTo(BankAccount destinationAccount, int transferAmount) {
-        balance = balance - transferAmount;
-        return destinationAccount.getBalance() + transferAmount;
+    public int transferTo(BankAccount destination, BankAccount source, int transferAmount) {
+    	balance = source.getBalance() - transferAmount;
+        balance = destination.getBalance() + transferAmount;
+        return balance;
     }
 
     public String getAccountHolderName() {
@@ -37,13 +37,13 @@ public class BankAccount implements Accountable {
         return balance;
     }
 
-    // Update the balance by using the DollarAmount.Plus method
+   
     public int deposit(int amountToDeposit) {
         balance = balance + amountToDeposit;
         return balance;
     }
 
-    // Update the balance by using the DollarAmount.Minus method
+   
     public int withdraw(int amountToWithdraw) {
         balance = balance - amountToWithdraw;
         return balance;

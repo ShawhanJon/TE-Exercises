@@ -8,12 +8,8 @@ public class BankCustomer {
     private String name;
     private String address;
     private String phoneNumber;
-    private List<Accountable> accounts;
+    private List<BankAccount> accounts = new ArrayList<BankAccount>();
     
-    public void addAccount(Accountable newAccount) {
-    	accounts = List<Accountable> + newAccount;
-        return accounts;
-    }
     
     
     
@@ -36,14 +32,26 @@ public class BankCustomer {
 	public void setPhoneNumber(String phoneNumber) {
 		this.phoneNumber = phoneNumber;
 	}
-	public List<Accountable> getAccounts() {
-		return accounts;
-	}
     
     
-    
-    
-    
-    
+	public BankAccount[] getAccounts() {
+    	BankAccount[] accountArray = new BankAccount[accounts.size()];
+    	for (int i = 0; i < accounts.size(); i++) {
+    		accountArray[i] = accounts.get(i);
+    	}
+        return accountArray;
+    }
+
+    public boolean isVip() {
+        int totalBalance = (0);
+        for (BankAccount account : accounts) {
+            totalBalance = totalBalance + (account.getBalance());
+        }
+        return totalBalance >= 25000;
+    }
+
+    public void addAccount(BankAccount newAccount) {
+        accounts.add(newAccount);
+    }
 
 }
