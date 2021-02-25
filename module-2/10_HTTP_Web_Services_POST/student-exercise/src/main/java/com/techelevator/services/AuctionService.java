@@ -66,19 +66,62 @@ public class AuctionService {
     }
 
     public Auction add(String auctionString) {
-        // place code here
-        return null;
-    }
+    	 Auction auction = makeAuction(auctionString);
+  	   if(auction == null) {
+  		   return null;
+  	   }
+  	   HttpEntity <Auction> entity = makeEntity(auction);
+
+  	    try {
+  	      auction = restTemplate.postForObject(API_URL, entity, Auction.class);
+  	    } catch (RestClientResponseException ex) {
+  	      console.printError(ex.getRawStatusCode() + " : " + ex.getStatusText());
+  	      auction = null;
+  	    } catch (ResourceAccessException ex) {
+  	      console.printError(ex.getMessage());
+  	      auction = null;
+  	     
+  	    }
+  	   
+      
+      return auction;
+  }
 
     public Auction update(String auctionString) {
-        // place code here
-        return null;
+    	Auction auction = makeAuction(auctionString);
+        if (auction == null) {
+          return null;
+        }
+
+        HttpEntity <Auction> entity = makeEntity(auction);
+
+        try {
+          restTemplate.put(API_URL + "auctions/" + auction.getId(), entity);
+        } catch (RestClientResponseException ex) {
+          console.printError(ex.getRawStatusCode() + " : " + ex.getStatusText());
+          auction = null;
+        } catch (ResourceAccessException ex) {
+          console.printError(ex.getMessage());
+          auction = null;
+        }
+        return auction;
+     
     }
 
     public boolean delete(int id) {
-    	// place code here
-    	return false; 
-    }
+    	try {
+  	      restTemplate.delete(API_URL  + "/" + id);
+  	      return true;
+  	    } catch (RestClientResponseException ex) {
+  	      console.printError(ex.getRawStatusCode() + " : " + ex.getStatusText());
+  	      return false;
+  	    } catch (ResourceAccessException ex) {
+  	      console.printError(ex.getMessage());
+  	      return false;
+  	    }
+  	  
+  	
+  }
 
     private HttpEntity<Auction> makeEntity(Auction auction) {
         HttpHeaders headers = new HttpHeaders();
