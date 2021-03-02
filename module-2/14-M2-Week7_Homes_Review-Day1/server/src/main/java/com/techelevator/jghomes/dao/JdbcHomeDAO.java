@@ -9,6 +9,7 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.support.rowset.SqlRowSet;
 import org.springframework.stereotype.Component;
 
+import com.techelevator.jghomes.exception.HomeNotFoundException;
 import com.techelevator.jghomes.model.Address;
 import com.techelevator.jghomes.model.Home;
 
@@ -84,7 +85,7 @@ public class JdbcHomeDAO implements HomeDAO{
 
 
 	@Override
-	public Home retrieveHomeByMLSId(String mlsId) {
+	public Home retrieveHomeByMLSId(String mlsId) throws HomeNotFoundException {
 
 		Home home = null;
 		
@@ -99,6 +100,10 @@ public class JdbcHomeDAO implements HomeDAO{
 			home = mapRowToHome(result);
 		}
 		
+		if(home == null) {
+			throw new HomeNotFoundException();
+		}
+		
 		
 		return home;
 		
@@ -107,7 +112,7 @@ public class JdbcHomeDAO implements HomeDAO{
 
 
 	@Override
-	public boolean deleteHome(String mlsId) {
+	public boolean deleteHome(String mlsId) throws HomeNotFoundException {
 		
 		String addressIdSql = "SELECT addressid from home WHERE mlsnumber = ?";
 		
@@ -119,7 +124,7 @@ public class JdbcHomeDAO implements HomeDAO{
 			addressId = results.getInt("addressId");
 		}
 		else {
-			return false;
+			throw new HomeNotFoundException();
 		}
 		
 		//first delete the home.. 
@@ -129,6 +134,7 @@ public class JdbcHomeDAO implements HomeDAO{
 		//now delete the address
 		String addressSQL = "DELETE FROM address where addressId = ?";
 		jdbcTemplate.update(addressSQL, addressId);
+		
 		
 	
 		return true;
