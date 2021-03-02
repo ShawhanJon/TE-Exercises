@@ -7,7 +7,6 @@ import org.springframework.http.HttpMethod;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.client.ResourceAccessException;
-import org.springframework.web.client.RestClientException;
 import org.springframework.web.client.RestClientResponseException;
 import org.springframework.web.client.RestTemplate;
 
@@ -26,6 +25,15 @@ public class HomeService {
 	public Home[] retrieveListOfHomes() {
 		
 	    Home[] homes = null;
+	    
+	    try {
+	      homes = restTemplate.exchange(BASE_SERVICE_URL + "/homes", HttpMethod.GET, makeAuthEntity(), Home[].class).getBody();
+	    } catch (RestClientResponseException ex) {
+	    	ex.printStackTrace();
+	    }
+	    return homes;
+	  }
+	    
 		
 	    //create HTTP header so we can set application/json AND AUTH_TOKEN
 
@@ -34,13 +42,20 @@ public class HomeService {
 		
 		
 	    //call the web service using the exchange method 
-		
-		
-		return homes;
-		
-	}
+	
+	
 	
 	public Home retrieveHomesByMLSID(String mlsId) {
+		
+		Home home = null;
+	    
+	    try {
+	      home = restTemplate.exchange(BASE_SERVICE_URL + "/homes/" + mlsId, HttpMethod.GET, makeAuthEntity(), Home.class).getBody();
+	    } catch (RestClientResponseException ex) {
+	    	ex.printStackTrace();
+	    }
+	    return home;
+	  }
 		
 	    //create HTTP header so we can set application/json AND AUTH_TOKEN
 	    
@@ -49,12 +64,18 @@ public class HomeService {
 		
 	    //call the web service using the exchange method 
 
-		
-		return null;
-		
-	}	
+
 	
 	public void addHome(Home home) {
+		
+		
+		ResponseEntity<String> response;
+		try {
+			response = restTemplate.exchange(BASE_SERVICE_URL + "/homes/", HttpMethod.POST, makeHomeEntity(home), String.class);
+	    } catch (RestClientResponseException ex) {
+	    	ex.printStackTrace();
+	    }
+	}
 		
 	    //create HTTP header so we can set application/json AND AUTH_TOKEN
 	    
@@ -62,9 +83,17 @@ public class HomeService {
 
 	    //call the web service using the exchange method 
 		
-	}	
+		
 	
 	public void deleteHome(String mlsId) {
+		
+		ResponseEntity<String> response;
+		try {
+			response = restTemplate.exchange(BASE_SERVICE_URL + "/homes/" + mlsId, HttpMethod.DELETE, makeAuthEntity(), String.class);
+	    } catch (RestClientResponseException ex) {
+	    	ex.printStackTrace();
+	    }
+	}
 		
 	  
 	    //create HTTP header so we can set application/json AND AUTH_TOKEN
@@ -76,7 +105,7 @@ public class HomeService {
 	    //call the web service on the server-side to retrieve an array of students...
 
 
-	}		
+		
 	
 	
 	
@@ -88,6 +117,19 @@ public class HomeService {
 		AUTH_TOKEN = aUTH_TOKEN;
 	}	
 	
+	private HttpEntity makeAuthEntity() {
+	    HttpHeaders headers = new HttpHeaders();
+	    headers.setBearerAuth(AUTH_TOKEN);
+	    HttpEntity entity = new HttpEntity<>(headers);
+	    return entity;
+	  }
+	private HttpEntity<Home> makeHomeEntity(Home home) {
+	    HttpHeaders headers = new HttpHeaders();
+	    headers.setContentType(MediaType.APPLICATION_JSON);
+	    headers.setBearerAuth(AUTH_TOKEN);
+	    HttpEntity<Home> entity = new HttpEntity<>(home, headers);
+	    return entity;
+	  }
 
 }
 	

@@ -9,6 +9,7 @@ import com.techelevator.jghomes.models.Home;
 import com.techelevator.jghomes.models.UserCredentials;
 import com.techelevator.jghomes.services.AuthenticationService;
 import com.techelevator.jghomes.services.AuthenticationServiceException;
+import com.techelevator.jghomes.services.HomeNotFoundException;
 import com.techelevator.jghomes.services.HomeService;
 import com.techelevator.view.ConsoleService;
 
@@ -57,7 +58,7 @@ public class App {
 		scanner = new Scanner(System.in);
 	}
 
-	public void run() {
+	public void run(){
 		System.out.println("*********************");
 		System.out.println("* Welcome to JG Homes! *");
 		System.out.println("*********************");
@@ -66,7 +67,7 @@ public class App {
 		mainMenu();
 	}
 
-	private void mainMenu() {
+	private void mainMenu(){
 		while (true) {
 			String choice = (String) console.getChoiceFromOptions(MAIN_MENU_OPTIONS);
 			if (MAIN_MENU_OPTION_LIST_ALL_HOMES.equals(choice)) {
@@ -86,7 +87,7 @@ public class App {
 		}
 	}
 
-	private void listAllHomes() {
+	private void listAllHomes(){
 		Home[] homes = homeService.retrieveListOfHomes();
 		printListOfHomes(homes);
 
