@@ -16,9 +16,17 @@ ul.social-icons {
   padding: 0;
 }
 
-nav {}
+nav  {
+  flex-grow: 1;
+}
 
-#right-panel {}
+#right-panel {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding-left: 15%;
+  grid-gap: 100px;
+}
 
 /* YOU WON'T NEED TO CHANGE ANY STYLES BELOW THIS LINE */
 
