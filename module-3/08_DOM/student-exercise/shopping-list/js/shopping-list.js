@@ -4,7 +4,7 @@ const pageTitle = 'My Shopping List';
 const groceries = ['Apples', 'Bananas', 'Sausage', 'Eggs', 'Bread', 'Cheese', 'Milk', 'Orange Juice', 'Steak', 'Ground Beef'];
 /**
  * This function will get a reference to the title and set its text to the value
- * of the pageTitle variable that was set abovee
+ * of the pageTitle variable that was set above.
  */
 function setPageTitle() {
     const title = document.querySelector('#title');
