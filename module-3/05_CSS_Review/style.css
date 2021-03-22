@@ -20,10 +20,10 @@ ul {
 
 nav ul {
     margin: 0;
-    padding: 20px 0 10px;
+    padding: 10px 0 10px;
     display: flex;
     justify-content: space-between;
-    align-items: center;
+    align-items: left;
 }
 
 nav ul li,
@@ -36,7 +36,7 @@ a {
     line-height: 50px;
 }
 
-nav ul li a {
+nav ul li a p {
     text-decoration: none;
     text-transform: uppercase;
     font-size: 12px;
@@ -54,69 +54,39 @@ header h1 {
     padding-top: 10px;
 }
 
-#facts {
+#about {
     align-items: center;
+    padding: auto;
+    margin: auto;
 }
 
-#facts div img {
+#about img {
+    object-fit: cover;
+    max-width: 100%;
+}
+
+#about-body {
+    ;
     object-fit: cover;
     width: 100%;
+    margin-left: 10px;
 }
 
-main li:before {
-    content: '🍡';
-    margin-left: -31px;
-    padding-right: 8px;
+main h2 p {
+    max-width: 100%;
+    margin: -10px;
+    padding: auto;
 }
 
 main,
 section,
 footer {
-    border-radius: 5px;
-    margin-bottom: 10px;
+    border: auto;
+    margin: auto;
 }
 
 a:hover {
     text-decoration: underline;
     background-color: #d2e3e9;
     border-radius: 5px;
-}
-
-.store-button {
-    /* used for store link in "Get refreshed" section */
-    text-decoration: none;
-    width: 25%;
-    padding: 10px;
-    border-radius: 5px;
-    color: #000000;
-    background-color: #00afef;
-    font-weight: bold;
-    text-align: center;
-    text-transform: uppercase;
-}
-
-
-/* FORM STYLE */
-
-form {
-    display: flex;
-    flex-direction: column;
-    height: 80%;
-    justify-content: stretch;
-}
-
-form div {
-    padding: 5px;
-}
-
-.submit-button {
-    border: none;
-    text-decoration: none;
-    width: 25%;
-    padding: 10px;
-    border-radius: 5px;
-    color: #000000;
-    background-color: #00afef;
-    font-weight: bold;
-    text-align: center;
 }

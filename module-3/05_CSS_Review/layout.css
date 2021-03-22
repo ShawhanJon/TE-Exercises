@@ -9,34 +9,10 @@ h2 {
     align-items: center;
 }
 
-#rainbow-popsicles {
-    object-fit: cover;
-    margin: 0 auto;
-}
-
 main section,
 footer {
     background-color: #ffffff;
     padding: 20px;
-}
-
-.race-header {
-    display: flex;
-    flex-direction: column;
-}
-
-.race-header img {
-    margin: 0 auto;
-    width: 150px;
-}
-
-.store h2 {
-    margin-bottom: 30px;
-}
-
-.store a {
-    display: block;
-    margin: 1em auto 0;
 }
 
 footer p {
@@ -73,7 +49,6 @@ textarea {
     main.index-main {
         display: grid;
         grid-area: main;
-        grid-template-areas: "rainbow rainbow" "race store";
     }
     main section {
         margin: 5px;
@@ -82,47 +57,18 @@ textarea {
     div#facts-body {
         padding-left: 15px;
     }
-    #facts {
+    #about {
         grid-area: rainbow;
         display: flex;
     }
-    #facts-header img {
+    #about-header img {
         max-width: 600px;
     }
-    #facts ul li {
+    #about p {
         margin: 9px 0;
-    }
-    .race {
-        grid-area: race;
-        display: flex;
-        align-items: center;
-    }
-    .store {
-        grid-area: store;
-    }
-    .store h2 {
-        text-align: center;
-    }
-    .store p {
-        text-align: center;
     }
     footer {
         grid-area: footer;
         max-height: 150px;
-    }
-    /*Form Style*/
-    .contact-main {
-        grid-area: main;
-        height: 50%;
-    }
-    .contact-main section {
-        height: unset;
-    }
-    input,
-    select {
-        width: 15vw;
-    }
-    textarea {
-        width: 50vw;
     }
 }
