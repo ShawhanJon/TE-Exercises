@@ -1,35 +1,23 @@
 <template>
   <div class="book-container">
-    <book-card
-    v-for="book in bookList" 
-    v-bind:key="book.id" v-bind:book='book'/>
+    <book-card v-for="book in $store.state.books" v-bind:book="book" v-bind:key="book.title"/>
   </div>
 </template>
 
 <script>
-import BookCard from './BookCard';
+import BookCard from '@/components/BookCard.vue';
 export default {
-  name: "reading-list",
-  components: {
-    BookCard
-  },
-  data() {
-      return {
-          bookList
-      }
-  },
-  computed: {
-      bookList() {
-          return this.$store.state.books;
-      }
-  }
-};
+    name: 'reading-list',
+    components: {
+        BookCard
+    }
+}
 </script>
 
 <style>
 .book-container {
-  display: flex;
-  justify-content: space-evenly;
-  flex-wrap: wrap;
+    display:flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
 }
 </style>
